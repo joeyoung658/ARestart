@@ -1,0 +1,11 @@
+name: ARestart
+version: 1
+author: Origin
+main: Origin.ARestart.Main
+api-version: 1.16
+commands:
+  arestart:
+      description: This command restarts the server!
+      usage: /<command>
+      permission: ar.arestart
+      permission-message: This is a admin only command!

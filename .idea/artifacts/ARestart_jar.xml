@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ARestart:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ARestart_jar</output-path>
+    <root id="archive" name="ARestart.jar">
+      <element id="module-output" name="ARestart" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../Spigot API/spigot-api-1.16.2-R0.1-SNAPSHOT.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

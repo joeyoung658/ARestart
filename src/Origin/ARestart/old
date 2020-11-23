@@ -1,0 +1,46 @@
+//    public void auto() {
+//        //Auto restarts the server every 6 hours
+//        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() { // Restarts the server every 6 hours
+//            @Override
+//            public void run() {
+//                Date date = new Date();   // given date
+//                Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+//                calendar.setTime(date);   // assigns calendar to given date
+//                int a = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
+//                int b = calendar.get(Calendar.MINUTE); // gets minuets
+//                if (a == 00) { // checks if hour is midnight
+//                    if (b == 00) { //checks if minuet is 00
+//                        mins(null); //Runs the mins fuction
+//                    } else {
+//                        auto(); //runs auto function
+//                    }
+//                }
+//                else if (a == 6) {
+//                    if (b == 00) {
+//                        mins(null);
+//                    } else {
+//                        auto();
+//                    }
+//                }
+//                else if (a == 12) {
+//                    if (b == 00) {
+//                        mins(null);
+//                    } else {
+//                        auto();
+//                    }
+//                }
+//                else if (a == 18) {
+//                    if (b == 00) {
+//                        mins(null);
+//                    } else {
+//                        auto();
+//                    }
+//                }
+//                else {
+//                    auto();
+//                }
+//
+//                mins(null); //Runs the mins fuction
+//            }
+//        }, 20l * 30);
+//    }
