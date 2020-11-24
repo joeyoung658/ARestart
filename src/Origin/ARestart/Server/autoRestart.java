@@ -1,4 +1,4 @@
-package Origin.ARestart.Server.Restart;
+package Origin.ARestart.Server;
 
 import Origin.ARestart.Main;
 import org.bukkit.Bukkit;
@@ -21,19 +21,6 @@ public class autoRestart extends BukkitRunnable {
     public void run() {
         mins(null);
     }
-
-//    public static void restart() {
-//        //Auto restarts the server every 6 hours
-//        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() { // Restarts the server every 6 hours
-//            @Override
-//            public void run() {
-//                mins(null); //Runs the mins fuction
-//            }
-//        }, ((20l * 60) * 60) * 6);
-//    }
-
-
-
 
     public static void mins(String a){ //First 60/30 warnings
         Bukkit.broadcastMessage(ChatColor.BLUE + "Server Will Restart in 60 Seconds!");
@@ -73,7 +60,7 @@ public class autoRestart extends BukkitRunnable {
                             for (Player p : Bukkit.getOnlinePlayers()) { //gets all online players
                                 if (a == null || a.equals("")) {
 
-                                    p.kickPlayer(ChatColor.AQUA + "The server is automatically restarting!" + ChatColor.WHITE + p.getDisplayName() + System.lineSeparator() + ChatColor.GREEN
+                                    p.kickPlayer(ChatColor.AQUA + "The server is automatically restarting! " + ChatColor.WHITE + p.getDisplayName() + System.lineSeparator() + ChatColor.GREEN
                                             + "The server will be back shortly!" + System.lineSeparator() + ChatColor.RED + "Check out our Discord!"
                                             + ChatColor.GOLD + "https://discord.gg/7nAGXXV");
 

@@ -12,11 +12,7 @@ public class ARestartConfig {
     public ARestartConfig(Main plugin){
             this.plugin = plugin;
             setUpConfig(plugin);
-            String autoSave = "autoSave";
-            String autoRestart = "autoRestart";
-            FileConfiguration config = plugin.getConfig();
-            autoSaveTime = config.getInt(autoSave);
-            autoRestartTime = config.getInt(autoRestart);
+            reloadConfig(plugin);
         }
 
     public static int getAutoSaveTime(){
@@ -27,7 +23,11 @@ public class ARestartConfig {
         return autoRestartTime;
     }
 
-    private void setUpConfig(Main plugin){
+    /**
+     * Sets up the config file if it isn't already
+     * @param plugin
+     */
+    private static void setUpConfig(Main plugin){
         String autoSave = "autoSave";
         String autoRestart = "autoRestart";
         FileConfiguration config = plugin.getConfig();
@@ -40,4 +40,25 @@ public class ARestartConfig {
         config.options().copyDefaults(true);
         plugin.saveConfig();
     }
+
+    public static boolean updateConfig (Main plugin, int time, String type){
+        FileConfiguration config = plugin.getConfig();
+        if (config.get(type) != null){
+            config.set(type, time);
+            plugin.saveConfig();
+            reloadConfig(plugin);
+            return true;
+        }
+        return false;
+    }
+
+
+    public static void reloadConfig(Main plugin){
+        String autoSave = "autoSave";
+        String autoRestart = "autoRestart";
+        FileConfiguration config = plugin.getConfig();
+        autoSaveTime = config.getInt(autoSave);
+        autoRestartTime = config.getInt(autoRestart);
+    }
+
 }

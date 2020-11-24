@@ -1,7 +1,7 @@
 package Origin.ARestart.Commands.Sub;
 
 import Origin.ARestart.Commands.ARestartCommandInterface;
-import Origin.ARestart.Server.Restart.autoRestart;
+import Origin.ARestart.Server.autoRestart;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

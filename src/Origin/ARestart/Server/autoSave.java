@@ -1,4 +1,4 @@
-package Origin.ARestart.Server.Save;
+package Origin.ARestart.Server;
 
 import Origin.ARestart.Main;
 import org.bukkit.Bukkit;

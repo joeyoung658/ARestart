@@ -2,26 +2,17 @@ package Origin.ARestart;
 
 import Origin.ARestart.Commands.ARestartCommandHandler;
 import Origin.ARestart.Commands.ARestartTabCompleter;
-import Origin.ARestart.Commands.Sub.noTimerCmd;
-import Origin.ARestart.Commands.Sub.restartCmd;
-import Origin.ARestart.Commands.Sub.saveCmd;
-import Origin.ARestart.Commands.Sub.stopRestartCmd;
+import Origin.ARestart.Commands.Sub.*;
 import Origin.ARestart.Commands.aRestartCmd;
 import Origin.ARestart.Data.ARestartConfig;
-import Origin.ARestart.Server.Restart.autoRestart;
-import Origin.ARestart.Server.Save.autoSave;
+import Origin.ARestart.Server.autoRestart;
+import Origin.ARestart.Server.autoSave;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
-//todo Make commands to edit the Auto save and restart times and update the config acordling
 
 //todo Create a toggle to send players to hub on restart rather than kick them from server
-
-//todo change to a command handler & implement tab listener
-//WIP
-
-//todo Upload to Spigot & make a public plugin
 
 public class Main extends JavaPlugin implements Listener{
     //Defines all the variables and staticss
@@ -36,12 +27,14 @@ public class Main extends JavaPlugin implements Listener{
         instance = this;
 
         //Sets up auto save/restart
-        long min = 60L * 60;
+        long min = 20L * 60;
         int autoSaveTime = ARestartConfig.getAutoSaveTime();
         int autoRestartTime = ARestartConfig.getAutoRestartTime();
         BukkitTask autoSave = new autoSave(this).runTaskTimer(this, (min * autoSaveTime), (min * autoSaveTime));
         BukkitTask autoRestart = new autoRestart(this).runTaskTimer(this, (min * autoRestartTime), (min * autoRestartTime));
 
+        getLogger().info(autoSave.toString());
+        getLogger().info(autoRestart.toString());
 
         getLogger().info("ARestart has been enabled");
     }
@@ -59,6 +52,9 @@ public class Main extends JavaPlugin implements Listener{
         aRestartCommands.register("restart", new restartCmd());
         aRestartCommands.register("notimer", new noTimerCmd());
         aRestartCommands.register("stoprestart", new stopRestartCmd());
+        aRestartCommands.register("checkintervals", new currentIntervalCmd());
+        aRestartCommands.register("saveinterval", new saveIntervalCmd());
+        aRestartCommands.register("restartinterval", new restartIntervalCmd());
 
         getCommand("arestart").setExecutor(aRestartCommands);
         getCommand("arestart").setTabCompleter(new ARestartTabCompleter());
