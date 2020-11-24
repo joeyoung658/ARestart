@@ -9,3 +9,4 @@ commands:
       usage: /<command>
       permission: ar.arestart
       permission-message: This is a admin only command!
+      aliases: [restart, stop, end, quit]
