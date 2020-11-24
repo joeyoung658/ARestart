@@ -36,7 +36,7 @@ public class Main extends JavaPlugin implements Listener{
         getLogger().info(autoSave.toString());
         getLogger().info(autoRestart.toString());
 
-        getLogger().info("ARestart has been enabled");
+        getLogger().info("ARestart 2.0 has been enabled");
     }
     @Override
     public void onDisable() { //When server terminates
